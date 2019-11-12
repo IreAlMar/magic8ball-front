@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/index.css';
 import '../styles/App.css';
 import Logo from '../static/images/logo.png';
 
@@ -26,10 +27,10 @@ class About extends React.Component {
         <h1>
           About me
         </h1>
-        <img src={Logo} alt="Magic 8 ball" className="App-logo" />
-        <div>
+        <img src={Logo} alt="Magic 8 ball" className="App-logo center" />
+        <p>
           {paragraph}
-        </div>
+        </p>
       </>
     );
   }
