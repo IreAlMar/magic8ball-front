@@ -13,10 +13,10 @@ class About extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://dinoipsum.herokuapp.com/api/?format=json')
+    fetch('http://www.randomtext.me/api/gibberish/p-5/25-45')
       .then((res) => res.json())
       .then((json) => {
-        this.setState({ paragraph: json });
+        this.setState({ paragraph: json.text_out });
       });
   }
 
@@ -28,9 +28,7 @@ class About extends React.Component {
           About me
         </h1>
         <img src={Logo} alt="Magic 8 ball" className="App-logo center" />
-        <p>
-          {paragraph}
-        </p>
+        <div dangerouslySetInnerHTML={{ __html: paragraph }} />
       </>
     );
   }
