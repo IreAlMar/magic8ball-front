@@ -72,10 +72,10 @@ class FortuneTeller extends Component {
               placeholder={placeholder}
               value={value}
               onChange={this.handleChange}
-              rows={1}
+              rows={2}
             />
 
-            <input className="center" type="submit" value="Submit" />
+            <button className="center App-button" aria-label="Submit" type="submit" value="Submit">Submit</button>
           </form>
           <h2>The answer</h2>
           <p>
