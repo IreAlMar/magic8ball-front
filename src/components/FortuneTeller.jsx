@@ -27,6 +27,7 @@ class FortuneTeller extends Component {
 
   handleChange(event) {
     this.setState({ value: event.target.value });
+    this.setState({ answer: event.target.answer });
   }
 
   handleSubmit(event) {
@@ -75,12 +76,28 @@ class FortuneTeller extends Component {
               rows={2}
             />
 
-            <button className="center App-button" aria-label="Submit" type="submit" value="Submit">Submit</button>
+            <button
+              className="center App-button"
+              aria-label="Submit"
+              type="submit"
+              value="Submit"
+            >
+              Give me an answer
+            </button>
           </form>
-          <h2>The answer</h2>
-          <p>
-            {answer}
-          </p>
+
+          {(answer !== '') ? (
+            <div>
+              <h2>The answer</h2>
+              <p>
+                {answer}
+              </p>
+            </div>
+          ) : (
+            <p>
+              {value}
+            </p>
+          )}
         </div>
       </>
     );
