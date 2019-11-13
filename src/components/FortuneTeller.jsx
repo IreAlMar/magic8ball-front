@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import autosize from 'autosize';
 
-class FortuneTeller extends React.Component {
+class FortuneTeller extends Component {
   constructor(props) {
     super(props);
 
@@ -12,6 +13,11 @@ class FortuneTeller extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.textarea.focus();
+    autosize(this.textarea);
   }
 
   getRandomInt() {
@@ -61,7 +67,13 @@ class FortuneTeller extends React.Component {
         <div className="center">
           <form onSubmit={this.handleSubmit}>
 
-            <textarea placeholder={placeholder} value={value} onChange={this.handleChange} />
+            <textarea
+              ref={(c) => { this.textarea = c; }}
+              placeholder={placeholder}
+              value={value}
+              onChange={this.handleChange}
+              rows={1}
+            />
 
             <input className="center" type="submit" value="Submit" />
           </form>
