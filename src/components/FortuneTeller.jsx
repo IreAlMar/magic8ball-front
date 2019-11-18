@@ -9,7 +9,7 @@ class FortuneTeller extends Component {
       value: '',
       answer: '',
       max: 8,
-      placeholder: 'Even though the choice is already made.',
+      placeholder: 'Even though the choice is already made...',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,17 +34,9 @@ class FortuneTeller extends Component {
     const { value } = this.state;
     const body = {
       question: value,
-      date: new Date(),
     };
 
-    // Control empty request from back end side
-    fetch(`http://localhost:3000/answers/${this.getRandomInt()}`)
-      .then((res) => res.json())
-      .then((json) => {
-        this.setState({ answer: json.value });
-      });
-
-    fetch('http://localhost:3000/questions',
+    fetch('/magic8ball/api/answers/',
       {
         headers: {
           Accept: 'application/json',
@@ -53,7 +45,10 @@ class FortuneTeller extends Component {
         method: 'POST',
         body: JSON.stringify(body),
       })
-      .then((res) => res.json());
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState({ answer: json });
+      });
 
     event.preventDefault();
   }

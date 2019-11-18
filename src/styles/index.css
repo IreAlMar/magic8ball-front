@@ -46,7 +46,8 @@ textarea {
     padding: 1em;
 }
 
-textarea:focus {
+textarea:focus,
+textarea:hover {
     outline: none;
     border: 1px solid #a31212;
     box-shadow: 0px 0px 14px #a31212;
