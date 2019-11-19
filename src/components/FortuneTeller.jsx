@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import autosize from 'autosize';
+import Answer from './Answer';
 
 class FortuneTeller extends Component {
   constructor(props) {
@@ -27,7 +28,6 @@ class FortuneTeller extends Component {
 
   handleChange(event) {
     this.setState({ value: event.target.value });
-    this.setState({ answer: event.target.answer });
   }
 
   handleSubmit(event) {
@@ -81,18 +81,7 @@ class FortuneTeller extends Component {
             </button>
           </form>
 
-          {(answer !== '') ? (
-            <div>
-              <h2>The answer</h2>
-              <p>
-                {answer}
-              </p>
-            </div>
-          ) : (
-            <p>
-              {value}
-            </p>
-          )}
+          <Answer answer={answer} />
         </div>
       </>
     );
